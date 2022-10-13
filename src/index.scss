@@ -9,6 +9,11 @@ html {
 	font-size: 1.2rem;
 }
 
+html, body, #root {
+	height: 100%;
+	overflow: hidden;
+}
+
 h1 {
 	margin: revert;
 }
