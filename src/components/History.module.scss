@@ -21,10 +21,14 @@
 		}
 	}
 
-	& > tbody > tr > td {
-		text-align: center;
-		border: $border-width solid $color;
-		padding: .5rem;
+	& > tbody > tr {
+		height: calc( 2em + .11em * 2 );
+
+		& > td {
+			text-align: center;
+			border: $border-width solid $color;
+			padding: .5rem;
+		}
 	}
 }
 

@@ -98,12 +98,21 @@ const History = () => {
 				</tr>
 			</thead>
 			<tbody>
-				{displayHistory.map( entry =>
+				{displayHistory.map( entry => (
 					<tr key={entry.timestamp}>
 						<td>{new Date( entry.timestamp ).toUTCString()}</td>
 						<td>{entry.price.toFixed(2)} USD</td>
 					</tr>
-				)}
+				))}
+				{Array( pagination.pageSize - displayHistory.length )
+					.fill()
+					.map( ( _, i ) => (
+						<tr key={i}>
+							<td></td>
+							<td></td>
+						</tr>
+					))
+				}
 			</tbody>
 		</table>
 		<div className={styles.pager}>
