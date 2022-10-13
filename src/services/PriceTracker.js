@@ -9,10 +9,16 @@ class PriceTracker {
 
 	interval = 60e3
 	timeout = null
-	lastRequest = Date.now()
+
+	get lastRequest(){
+		return store.getState().tracker.lastRequest ?? 0
+	}
+
+	set lastRequest( value ){
+		store.dispatch( actions.setLastRequest( value ) )
+	}
 
 	constructor(){
-		this.fetchPrice()
 		this.runTimeout()
 	}
 
