@@ -5,7 +5,7 @@ const token = `7c116ddd-9b21-411b-846a-c013d3017216`
 export const minInterval = 5e3
 
 class PriceTracker {
-	static url = `https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest`
+	static url = `https://coin-realy.mobilauto.com.ua/v1/cryptocurrency/quotes/latest`
 
 	interval = 60e3
 	timeout = null
@@ -37,30 +37,14 @@ class PriceTracker {
 	fetchPrice(){
 		this.lastRequest = Date.now()
 
-		// axios.get( PriceTracker.url, {
-		// 	headers: {
-		// 		'X-CMC_PRO_API_KEY': token,
-		// 	},
-		// 	params: {
-		// 		symbol: 'BTC'
-		// 	},
-		// })
-		new Promise( resolve => {
-			setTimeout( () => {
-				resolve({
-					data: {
-						data: {
-							BTC: {
-								quote: {
-									USD: {
-										price: Math.random() * 10e3,
-									}
-								}
-							}
-						}
-					}
-				})
-			}, 1337 )
+		axios.get( PriceTracker.url, {
+			// headers: {
+			// 	'X-CMC_PRO_API_KEY': token,
+			// },
+			params: {
+				'CMC_PRO_API_KEY': token,
+				symbol: 'BTC',
+			},
 		})
 			.then( response => {
 				const entry = {

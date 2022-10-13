@@ -13,11 +13,11 @@ export const loadState = () => {
 		const serializedState = localStorage.getItem( 'state' )
 
 		if( serializedState == null )
-			return null
+			return
 
 		return JSON.parse( serializedState )
 	} catch( err ){
 		console.error( err )
-		return null
+		return
 	}
 }
