@@ -1,0 +1,43 @@
+@import './../GlobalVars.scss';
+
+.root {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: inherit;
+}
+
+.table {
+	width: 100%;
+	border: $border-width solid $color;
+	border-collapse: collapse;
+
+	& > thead > tr {
+		background-color: $primary-bg;
+
+		& > th {
+			padding: .5rem;
+		}
+	}
+
+	& > tbody > tr > td {
+		text-align: center;
+		border: $border-width solid $color;
+		padding: .5rem;
+	}
+}
+
+.toggle {
+	color: white;
+	font: inherit;
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
+}
+
+.pager {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+}

@@ -1,0 +1,12 @@
+$font: 'Roboto', sans-serif;
+$max-width: 30rem;
+$border-width: .11rem;
+
+$bg: #1e1e1e;
+$color: white;
+$primary-color: rgb(196, 128, 255);
+
+$input-bg: lighten( $bg, 10% );
+$primary-bg: mix( $bg, $primary-color, $weight: 75% );
+$error-bg: mix( $input-bg, red, $weight: 90% );
+$button-border: darken( $color, 50% );

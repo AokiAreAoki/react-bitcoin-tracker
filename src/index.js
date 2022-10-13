@@ -1,17 +1,30 @@
+import './index.scss';
+import './GlobalVars.scss';
+
 import React from 'react';
+import { Provider } from 'react-redux';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+
+import App from './components/App';
+import tracker from './services/PriceTracker';
+import { store } from './store/store';
+import { saveState } from './store/localStorage';
+import throttle from './utils/throttle';
+
+store.subscribe( throttle( () => {
+	saveState( store.getState() )
+}, 200 ) )
+
+store.subscribe( () => {
+	const interval = store.getState().tracker.updateInterval
+
+	if( tracker.interval !== interval )
+		tracker.setInterval( interval )
+})
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+	<Provider store={store}>
+		<App />
+	</Provider>
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();

@@ -1,0 +1,28 @@
+@import './../GlobalVars.scss';
+
+.root {
+	display: flex;
+	flex-wrap: nowrap;
+	// gap: inherit;
+
+	& .input {
+		max-width: 1rem;
+		font-family: monospace;
+		text-align: center;
+		color: $color;
+		background-color: $input-bg;
+		border: $border-width solid $button-border;
+		outline: none;
+		padding-block: 0.1rem;
+		padding-inline: 0.1rem;
+
+		&:focus {
+			border-color: $color;
+		}
+
+		&:invalid {
+			background-color: $error-bg;
+			border-color: red;
+		}
+	}
+}
