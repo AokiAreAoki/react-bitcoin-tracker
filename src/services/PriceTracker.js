@@ -37,7 +37,7 @@ class PriceTracker {
 		this.timeout = setTimeout( () => {
 			this.fetchPrice()
 			this.runTimeout()
-		}, this.lastRequest + this.interval - Date.now() )
+		}, Math.max( this.lastRequest + this.interval - Date.now(), 0 ) )
 	}
 
 	fetchPrice(){
